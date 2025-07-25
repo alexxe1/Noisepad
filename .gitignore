@@ -71,3 +71,4 @@ copilot.json
 
 # Avalonia source generators (if used)
 *.g.cs
+/Soundboard/.vs

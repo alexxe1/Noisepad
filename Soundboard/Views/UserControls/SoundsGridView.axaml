@@ -1,0 +1,104 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="Soundboard.Views.UserControls.SoundsGridView">
+
+    <UserControl.Styles>
+        <Style Selector="DataGridCell:selected /template/ Grid#FocusVisual">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+        <Style Selector="DataGridCell:selected /template/ Rectangle#InvalidVisualElement">
+            <Setter Property="IsVisible" Value="False" />
+        </Style>
+    </UserControl.Styles>
+
+    <DataGrid ItemsSource="{Binding FilteredSounds}"
+              SelectedItem="{Binding SelectedSound}"
+              AutoGenerateColumns="False"
+              x:Name="SoundsList">
+        <DataGrid.Columns>
+            <DataGridTextColumn Header="Name"
+                                IsReadOnly="true"
+                                Binding="{Binding Name}"
+                                Width="Auto" />
+
+            <DataGridTemplateColumn Header="Custom Volume" Width="*">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center" Margin="5,0">
+                            <CheckBox IsChecked="{Binding EnableVolume, Mode=TwoWay}"
+                                      VerticalAlignment="Center"
+                                      Margin="0,0,5,0"/>
+                            <Slider Grid.Column="1"
+                                    Minimum="0.0"
+                                    Maximum="1.0"
+                                    Value="{Binding Volume, Mode=TwoWay}"
+                                    IsEnabled="{Binding EnableVolume}"
+                                    VerticalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+            <DataGridTemplateColumn Header="Custom Pitch" Width="*">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center" Margin="5,0">
+                            <CheckBox IsChecked="{Binding EnablePitch, Mode=TwoWay}"
+                                      VerticalAlignment="Center"
+                                      Margin="0,0,5,0"/>
+                            <Slider Grid.Column="1"
+                                    Minimum="0.5"
+                                    Maximum="2.0"
+                                    Value="{Binding Pitch, Mode=TwoWay}"
+                                    IsEnabled="{Binding EnablePitch}"
+                                    VerticalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+            <DataGridTemplateColumn Header="Random Pitch" Width="Auto">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding RandomPitch, Mode=TwoWay}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+            <DataGridTemplateColumn Header="Reversed" Width="Auto">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <CheckBox VerticalAlignment="Center" HorizontalAlignment="Center" IsChecked="{Binding Reversed, Mode=TwoWay}" />
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+
+            <DataGridTemplateColumn Header="Shortcut" Width="Auto">
+                <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                        <Grid ColumnDefinitions="Auto,*,Auto" VerticalAlignment="Center" Margin="5,0">
+                            <Button Grid.Column="0"
+                                    Command="{Binding ChangeSoundShortcutCommand}"
+                                    Content="⚙️"
+                                    VerticalAlignment="Center"
+                                    Margin="0,0,5,0"/>
+
+                            <TextBlock Grid.Column="1"
+                                       Text="{Binding Shortcut}"
+                                       Margin="0,0,5,0"
+                                       VerticalAlignment="Center"
+                                       TextTrimming="CharacterEllipsis"/>
+
+                            <Button Grid.Column="2"
+                                    Command="{Binding ClearShortcutCommand}"
+                                    Content="🗑️"
+                                    VerticalAlignment="Center"
+                                    IsVisible="{Binding HasShortcut}"
+                                    Margin="0,0,0,0"/>
+                        </Grid>
+                    </DataTemplate>
+                </DataGridTemplateColumn.CellTemplate>
+            </DataGridTemplateColumn>
+        </DataGrid.Columns>
+    </DataGrid>
+</UserControl>

@@ -1,0 +1,57 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Design.Width="800"
+             Height="36"
+             x:Class="Soundboard.Views.UserControls.PlaybackControlsView">
+    <Grid ColumnDefinitions="Auto,Auto,Auto,Auto,*,Auto,Auto,*,Auto" VerticalAlignment="Center">
+        <!-- Play and Stop buttons -->
+        <Button Grid.Column="0" Command="{Binding PlaySelectedSoundCommand}" Content="▶️" Margin="0,0,5,0" VerticalAlignment="Center"/>
+        <Button Grid.Column="1" Command="{Binding StopAllSoundsCommand}" Content="🟥" Margin="0,0,5,0" VerticalAlignment="Center"/>
+        <Button Grid.Column="2" Command="{Binding StartStopVoiceRecordingCommand}" Content="{Binding RecordingState}" Margin="0,0,5,0" VerticalAlignment="Center"/>
+
+        <!-- Volume -->
+        <TextBlock Grid.Column="3"
+                   Text="{Binding GeneralVolumeText}"
+                   VerticalAlignment="Center"
+                   Margin="5,0,5,0"/>
+        <Slider Grid.Column="4"
+                Minimum="0.0"
+                Maximum="1.0"
+                Value="{Binding GeneralVolume, Mode=TwoWay}"
+                Background="Gray"
+                Foreground="DodgerBlue"
+                VerticalAlignment="Center"
+                Margin="5,0,5,5"
+                Height="44"/>
+        <Button Grid.Column="5"
+                Command="{Binding ResetVolumeCommand}"
+                Content="🔄"
+                Margin="5,0,5,0"
+                VerticalAlignment="Center"
+                Height="30"/>
+
+        <!-- Pitch -->
+        <TextBlock Grid.Column="6"
+                   Text="{Binding GeneralPitchText}"
+                   VerticalAlignment="Center"
+                   Margin="5,0,5,0"/>
+        <Slider Grid.Column="7"
+                Minimum="0.5"
+                Maximum="2.0"
+                Value="{Binding GeneralPitch, Mode=TwoWay}"
+                Background="Gray"
+                Foreground="DodgerBlue"
+                VerticalAlignment="Center"
+                Margin="5,0,5,5"
+                Height="44"/>
+        <Button Grid.Column="8"
+                Command="{Binding ResetPitchCommand}"
+                Content="🔄"
+                Margin="5,0,0,0"
+                VerticalAlignment="Center"
+                Height="30"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,24 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:Soundboard.ViewModels"
+             xmlns:uc="clr-namespace:Soundboard.Views.UserControls"
+             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="450"
+             x:Class="Soundboard.Views.MainView"
+             x:DataType="vm:MainViewModel">
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <Grid RowDefinitions="Auto,Auto,*" ColumnDefinitions="*" Margin="10">
+        <!-- Toolbar -->
+        <uc:TopToolbarView Grid.Row="0" Margin="0,0,0,5"/>
+
+        <!-- Playback controls 2 -->
+        <uc:PlaybackControlsView Grid.Row="1" Margin="0,0,0,10"/>
+
+        <!-- Sounds list -->
+        <uc:SoundsGridView Grid.Row="2"/>
+    </Grid>
+</UserControl>

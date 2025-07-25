@@ -1,0 +1,73 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Soundboard.Views.ShortcutPopupView">
+
+    <Border CornerRadius="5"
+            Padding="20"
+            HorizontalAlignment="Center"
+            BorderBrush="Gray"
+            BorderThickness="2"
+            VerticalAlignment="Center"
+            Classes="FloatingContainer">
+        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*">
+            <!-- Title -->
+            <TextBlock Grid.Row="0"
+                       Text="Press any key to assign shortcut"
+                       FontSize="16"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,15" />
+
+            <Grid Grid.Row="1"
+                  ColumnDefinitions="*,Auto"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center">
+                <!-- Capture button -->
+                <Button Grid.Column="0"
+                        Height="50"
+                        BorderBrush="Transparent"
+                        CornerRadius="5"
+                        Command="{Binding AllowInputCommand}"
+                        Content="{Binding CapturedShortcut}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"
+                        FontSize="24"
+                        FontWeight="Bold"
+                        Width="200"
+                        Margin="0,0,10,0" />
+
+                <!-- Remove shortcut -->
+                <Button Grid.Column="1"
+                        Command="{Binding ClearShortcutCommand}"
+                        Content="🗑️"
+                        VerticalAlignment="Center"
+                        BorderBrush="Transparent"
+                        CornerRadius="5"
+                        FontSize="20"/>
+            </Grid>
+
+            <!-- OK and Cancel -->
+            <StackPanel Grid.Row="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        Margin="0 20 0 0"
+                        Spacing="15">
+                <Button Width="100" Height="35"
+                        Command="{Binding OkPopupCommand}"
+                        Content="OK"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"/>
+                <Button Width="100" Height="35"
+                        Command="{Binding CancelPopupCommand}"
+                        Content="Cancel"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

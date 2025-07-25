@@ -1,0 +1,140 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:rs="using:RangeSlider.Avalonia.Controls"
+             mc:Ignorable="d" d:DesignWidth="800"
+             x:Class="Soundboard.Views.ConfigView">
+
+    <Border BorderBrush="Gray" BorderThickness="2" Padding="10">
+        <Grid RowDefinitions="*,Auto">
+
+            <!-- Scrollable content -->
+            <ScrollViewer Grid.Row="0">
+                <StackPanel Margin="10" Spacing="20">
+
+                    <!-- Devices -->
+                    <Border BorderBrush="Gray" BorderThickness="1" Padding="10">
+                        <StackPanel>
+                            <TextBlock Text="Devices" FontWeight="Bold" Margin="0,0,0,10"/>
+                            <StackPanel Spacing="10">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="Virtual microphone:" VerticalAlignment="Center"/>
+                                    <ComboBox ItemsSource="{Binding MicrophoneDevices}"
+                                              SelectedItem="{Binding SelectedMicrophone}" />
+                                </StackPanel>
+
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="Speaker:" VerticalAlignment="Center"/>
+                                    <ComboBox ItemsSource="{Binding SpeakerDevices}"
+                                              SelectedItem="{Binding SelectedSpeaker}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Sounds folder -->
+                    <Border BorderBrush="Gray" BorderThickness="1" Padding="10">
+                        <StackPanel>
+                            <TextBlock Text="Sounds folder" FontWeight="Bold" Margin="0,0,0,10"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <Button Content="Choose folder" Command="{Binding ChooseSoundsFolderCommand}" />
+                                <Border BorderBrush="DarkGray" BorderThickness="1" Padding="5" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding SoundsFolder}" Width="500" TextWrapping="Wrap"/>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- General shortcuts -->
+                    <Border BorderBrush="Gray" BorderThickness="1" Padding="10">
+                        <StackPanel>
+                            <TextBlock Text="General Shortcuts" FontWeight="Bold" Margin="0,0,0,10"/>
+                            <StackPanel Spacing="10">
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="Stop all sounds:" VerticalAlignment="Center"/>
+                                    <Button Content="{Binding StopAllSoundsShortcut}" Command="{Binding SetStopAllSoundsShortcutCommand}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="Play random sound:" VerticalAlignment="Center"/>
+                                    <Button Content="{Binding PlayRandomSoundShortcut}" Command="{Binding SetPlayRandomSoundShortcutCommand}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="Play latest sound pitched:" VerticalAlignment="Center"/>
+                                    <Button Content="{Binding PlayLatestSoundPitchedShortcut}" Command="{Binding SetPlayLatestSoundPitchedShortcutCommand}" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="10">
+                                    <TextBlock Text="Play latest sound reversed:" VerticalAlignment="Center"/>
+                                    <Button Content="{Binding PlayLatestSoundReversedShortcut}" Command="{Binding SetPlayLatestSoundReversedShortcutCommand}" />
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Voice Recording -->
+                    <Border BorderBrush="Gray" BorderThickness="1" Padding="10">
+                        <StackPanel>
+                            <TextBlock Text="Voice Recording" FontWeight="Bold" Margin="0,0,0,10"/>
+                            <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+                                <TextBlock Text="Start/Stop voice recording shortcut:" VerticalAlignment="Center"/>
+                                <Button Content="{Binding StartStopVoiceRecordingShortcut}" Command="{Binding SetStartStopVoiceRecordingShortcutCommand}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+                                <TextBlock Text="Play latest voice recording shortcut:" VerticalAlignment="Center"/>
+                                <Button Content="{Binding PlayLatestVoiceRecordingShortcut}" Command="{Binding SetPlayLatestVoiceRecordingShortcutCommand}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10" Margin="0,0,0,10">
+                                <TextBlock Text="Play latest voice recording with random pitch shortcut:" VerticalAlignment="Center"/>
+                                <Button Content="{Binding PlayLatestVoiceRecordingPitchedShortcut}" Command="{Binding SetPlayLatestVoiceRecordingPitchedShortcutCommand}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Spacing="10">
+                                <CheckBox Content="Record virtual microphone" IsChecked="{Binding RecordVirtualMic}" />
+                                <CheckBox Content="Record speaker" IsChecked="{Binding RecordSpeaker}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Voice recording -->
+                    <Border BorderBrush="Gray" BorderThickness="1" Padding="10">
+                        <StackPanel>
+                            <TextBlock Text="Audio" FontWeight="Bold" Margin="0,0,0,10"/>
+                            <StackPanel>
+                                <TextBlock Text="Random pitch range"/>
+                                <rs:RangeSlider Minimum="0.5"
+                                                Maximum="2.0"
+                                                LowerSelectedValue="{Binding MinRandomPitchRange, Mode=TwoWay}"
+                                                UpperSelectedValue="{Binding MaxRandomPitchRange, Mode=TwoWay}"
+                                                IsThumbOverlap="True"/>
+                                <Grid Margin="0,0,0,0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Text="0.5" HorizontalAlignment="Left" Grid.Column="0"/>
+                                    <TextBlock Text="2.0" HorizontalAlignment="Right" Grid.Column="1"/>
+                                </Grid>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- Sección: Tray -->
+                    <Border BorderBrush="Gray" BorderThickness="1" Padding="10">
+                        <StackPanel>
+                            <TextBlock Text="Tray" FontWeight="Bold" Margin="0,0,0,10"/>
+                            <CheckBox Content="Exit to tray" IsChecked="{Binding ExitToTray}" />
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </ScrollViewer>
+
+            <Border Grid.Row="1" Padding="10,10,10,10" BorderThickness="0,1,0,0" BorderBrush="Gray">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="10">
+                    <Button Content="Save and Close" Command="{Binding SaveConfigCommand}" />
+                    <Button Content="Cancel" Command="{Binding CancelConfigCommand}"/>
+                </StackPanel>
+            </Border>
+
+        </Grid>
+    </Border>
+</UserControl>

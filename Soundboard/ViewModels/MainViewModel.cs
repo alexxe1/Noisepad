@@ -138,10 +138,9 @@ public partial class MainViewModel : ObservableObject
 
     private void OnShortcutPressed(string shortcut)
     {
-        TryApplyQOLShortcuts(shortcut);
-
         UiThreadHelper.Run(() =>
         {
+            TryApplyQOLShortcuts(shortcut);
             PlaySoundWithShortcut(shortcut);
             TryStopAllSoundsShortcut(shortcut);
             TryPlayRandomSoundShortcut(shortcut);
@@ -150,7 +149,7 @@ public partial class MainViewModel : ObservableObject
 
             if (shortcut == ConfigManager.ConfigData.StartStopVoiceRecordingShortcut)
             {
-                if (_isRecording)
+                if (!_isRecording)
                     StartVoiceRecording();
                 else
                     StopVoiceRecording();
@@ -428,12 +427,10 @@ public partial class MainViewModel : ObservableObject
         if (_isRecording)
         {
             StopVoiceRecording();
-            RecordingState = "🎙️";
         }
         else
         {
             StartVoiceRecording();
-            RecordingState = "⏹️";
         }
     }
 
@@ -520,12 +517,17 @@ public partial class MainViewModel : ObservableObject
         _isRecording = true;
         _newSoundName = $"Recording-{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.wav";
 
+        RecordingState = "⏹️";
+
         _recorder?.StartRecording(Path.Combine(_currentSoundsFolder, _newSoundName));
     }
 
     private void StopVoiceRecording()
     {
-        if (!_isRecording) return;
+        if (!_isRecording) 
+            return;
+
+        RecordingState = "🎙️";
 
         _recorder?.StopRecording();
 

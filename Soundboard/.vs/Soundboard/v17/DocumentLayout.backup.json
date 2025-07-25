@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "D:\\Projects\\Visual Studio Projects\\Noisepad\\Soundboard\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{100F1DE2-FCF7-FD6D-7FCF-E8EB8C689555}|Soundboard.csproj|d:\\projects\\visual studio projects\\noisepad\\soundboard\\views\\shortcutpopupview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{100F1DE2-FCF7-FD6D-7FCF-E8EB8C689555}|Soundboard.csproj|solutionrelative:views\\shortcutpopupview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{100F1DE2-FCF7-FD6D-7FCF-E8EB8C689555}|Soundboard.csproj|d:\\projects\\visual studio projects\\noisepad\\soundboard\\views\\configview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{100F1DE2-FCF7-FD6D-7FCF-E8EB8C689555}|Soundboard.csproj|solutionrelative:views\\configview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+      "AbsoluteMoniker": "D:0:0:{100F1DE2-FCF7-FD6D-7FCF-E8EB8C689555}|Soundboard.csproj|d:\\projects\\visual studio projects\\noisepad\\soundboard\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{100F1DE2-FCF7-FD6D-7FCF-E8EB8C689555}|Soundboard.csproj|solutionrelative:viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,25 +19,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ShortcutPopupView.axaml",
-              "DocumentMoniker": "D:\\Projects\\Visual Studio Projects\\Noisepad\\Soundboard\\Views\\ShortcutPopupView.axaml",
-              "RelativeDocumentMoniker": "Views\\ShortcutPopupView.axaml",
-              "ToolTip": "D:\\Projects\\Visual Studio Projects\\Noisepad\\Soundboard\\Views\\ShortcutPopupView.axaml",
-              "RelativeToolTip": "Views\\ShortcutPopupView.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-25T22:28:41.648Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConfigView.axaml",
-              "DocumentMoniker": "D:\\Projects\\Visual Studio Projects\\Noisepad\\Soundboard\\Views\\ConfigView.axaml",
-              "RelativeDocumentMoniker": "Views\\ConfigView.axaml",
-              "ToolTip": "D:\\Projects\\Visual Studio Projects\\Noisepad\\Soundboard\\Views\\ConfigView.axaml",
-              "RelativeToolTip": "Views\\ConfigView.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-25T22:33:59.616Z",
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\Projects\\Visual Studio Projects\\Noisepad\\Soundboard\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MainViewModel.cs",
+              "ToolTip": "D:\\Projects\\Visual Studio Projects\\Noisepad\\Soundboard\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAAAYCAAAAAAAAAIAzwBECAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T23:16:42.956Z",
               "EditorCaption": ""
             }
           ]

@@ -1,0 +1,73 @@
+# Build results
+bin/
+obj/
+
+# Avalonia Designer files
+*.axaml.cs.designer.*
+
+# Avalonia XAML preview cache
+.avalonia/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
+
+# Rider and VS Code
+.idea/
+.vscode/
+
+# Windows-specific
+*.exe
+*.dll
+*.pdb
+
+# macOS-specific
+.DS_Store
+
+# Linux-specific
+*~
+
+# Avalonia specific artifacts
+*/GeneratedInternalTypeHelper.cs
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+packages/
+*.nuspec
+
+# Logs
+*.log
+
+# Publish output
+publish/
+dist/
+artifacts/
+
+# JetBrains Rider
+*.sln.iml
+
+# Dotnet-generated
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Test results
+TestResults/
+
+# Web-related (if Avalonia.Web is used)
+node_modules/
+dist/
+build/
+.env
+
+# Optional: hide launchSettings.json if you don't want to include it
+# Properties/launchSettings.json
+
+# Include this if you're using GitHub Copilot
+copilot.json
+
+# Avalonia source generators (if used)
+*.g.cs
